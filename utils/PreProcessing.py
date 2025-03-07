@@ -2,7 +2,7 @@ import requests
 import os
 import logging
 from box import Box
-
+import datetime
 
 # Ensure the "logs" directory exists
 log_dir = 'logs'
@@ -60,7 +60,70 @@ class preprocessing:
             logger.error(logging.ERROR,f"Error: {response.status_code}, Message: {response.text}")  # Print error details
         return Box(response.json())
     
+    def get_user_feed(self, base_url_feed, username):
+        """
+        Returns the feed for a paticular user
+        Args:
+        base_url_feed : base url to hit the feet retrival endpoint
+        username : username for which the feeed needs to be retrived
+        Returns:
+        Box object of the feed for the user
+        """
+        final_url = base_url_feed + username
+        response = requests.get(final_url)
+        return Box(response.json())
     
+    
+
+    def extract_features(self, post):
+        """
+        Extract key features from post data, grouped by category.
+        Args : 
+        post - input post box object
+        return - dict with feature map
+        """
+        
+        #Engagement Features
+        engagement_features = {
+            "view_count": post.view_count,
+            "upvote_count": post.upvote_count,
+            "comment_count": post.comment_count,
+            "exit_count": post.exit_count,
+            "rating_count": post.rating_count,
+            "average_rating": post.average_rating,
+            "share_count": post.share_count,
+            "bookmark_count": post.bookmark_count,
+        }
+
+        #Content Features
+        content_features = {
+            "category": post.category.name,
+            "topic": post.topic.name,
+            "title": post.title,
+            "tags": post.tags,
+        }
+
+        #Other Features (User Behavior & Time-Based)
+        timestamp = post.created_at / 1000  # Convert from milliseconds
+        post_date = datetime.datetime.utcfromtimestamp(timestamp)  # Correct usage of datetime
+        post_age_days = (datetime.datetime.utcnow() - post_date).days  # Compute post age in days
+
+        other_features = {
+            "username": post.username,
+            "user_type": post.user_type,
+            "upvoted": post.upvoted,
+            "bookmarked": post.bookmarked,
+            "following": post.following,
+            "post_age_days": post_age_days,  # Age of post in days
+        }
+
+        # Return as structured dictionary
+        return {
+            "engagement_features": engagement_features,
+            "content_features": content_features,
+            "other_features": other_features
+        }
+        
 
 if __name__ == "__main__":
     pass
