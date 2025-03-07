@@ -1,6 +1,7 @@
 import requests
 import os
 import logging
+from box import Box
 
 
 # Ensure the "logs" directory exists
@@ -28,9 +29,9 @@ logger.addHandler(file_handler)
 
 
 class preprocessing:
-    def get_json(self, api:str, data_endpoint:str):
+    def get_response(self, api:str, data_endpoint:str):
         """
-        Returns the json object for the provided endpoint
+        Returns the Box object for the json response for the provided endpoint
         Args:
         api : api key for the end point
         data_endpoint: endpoint to fetch data from 
@@ -54,8 +55,10 @@ class preprocessing:
 
         # Check if request was successful
         if response.status_code == 200:
-            print("Response Successfull:")  
+            logger.log(logging.INFO, "Response Successfull: ")
         else:
             logger.error(logging.ERROR,f"Error: {response.status_code}, Message: {response.text}")  # Print error details
-        return response.json()
+        return Box(response.json())
 
+if __name__ == "__main__":
+    pass
