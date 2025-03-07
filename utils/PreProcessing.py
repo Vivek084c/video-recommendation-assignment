@@ -59,6 +59,8 @@ class preprocessing:
         else:
             logger.error(logging.ERROR,f"Error: {response.status_code}, Message: {response.text}")  # Print error details
         return Box(response.json())
+    
+    
 
 if __name__ == "__main__":
     pass

@@ -35,11 +35,11 @@ logger.addHandler(file_handler)
 # ----------------------------------------
 class main:
     def fetch_data(self):
-        logger.log(logging.INFO, "Completed >>>> Fetching the API key and endpoint for data Fetching")
+        logger.log(logging.INFO, "Started >>>> Fetching the API key and endpoint for data Fetching")
         api = os.getenv("Flic-Token")
         # base_url = os.getenv("API_BASE_URL")
         data_url = os.getenv("DATA_FETCH_URL")
-        logger.log(logging.INFO, "Started >>>> Fetching the API key and endpoint for data Fetching ")
+        logger.log(logging.INFO, "Completed >>>> Fetching the API key and endpoint for data Fetching ")
 
         logger.log(logging.INFO, "Started >>>> Getting the response from https request")
         obj = preprocessing()
