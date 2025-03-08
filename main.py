@@ -26,28 +26,42 @@
 # logger.addHandler(console_handler)
 # logger.addHandler(file_handler)
 
+
+# import os
+# from dotenv import load_dotenv
+# load_dotenv()
+# from utils.PreProcessing import preprocessing
+
+
+
+# app=FastAPI()
+# app.include_router(users.APIRouter)
+
+
 from fastapi import FastAPI
-import os
-from dotenv import load_dotenv
-load_dotenv()
-from utils.PreProcessing import preprocessing
+from routes import users  # Import users router
 
 app = FastAPI()
 
-# Root endpoint
-@app.get("/")
-def read_root():
-    return {"message": "Welcome to FastAPI!"}
+# ✅ Include the users router
+app.include_router(users.router)
 
-# Endpoint to return user info
-@app.get("/user/{user_id}")
-def get_user(user_id: int):
-    return {"user_id": user_id, "name": "John Doe"}
+# app = FastAPI()
 
-# POST request to receive JSON data
-@app.post("/submit/")
-def submit_data(data: dict):
-    return {"message": "Data received", "data": data}
+# # Root endpoint
+# @app.get("/")
+# def read_root():
+#     return {"message": "Welcome to FastAPI!"}
+
+# # Endpoint to return user info
+# @app.get("/user/{user_id}")
+# def get_user(user_id: int):
+#     return {"user_id": user_id, "name": "John Doe"}
+
+# # POST request to receive JSON data
+# @app.post("/submit/")
+# def submit_data(data: dict):
+#     return {"message": "Data received", "data": data}
 
 
 
