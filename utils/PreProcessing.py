@@ -77,7 +77,7 @@ class preprocessing:
 
     def extract_features(self, post):
         """
-        Extract key features from post data, grouped by category.
+        Extract key features from post
         Args : 
         post - input post box object
         return - dict with feature map

@@ -8,3 +8,13 @@
 2025-03-07 22:08:51,706 - PreProcessing - INFO - get_response - Successfully Hit the endpoint
 2025-03-07 22:09:19,765 - PreProcessing - INFO - get_response - Successfully got response from endpoint
 2025-03-07 22:09:19,765 - PreProcessing - INFO - get_response - Response Successfull: 
+2025-03-08 15:19:29,815 - PreProcessing - INFO - get_response - Started json file retriver 
+2025-03-08 15:19:29,816 - PreProcessing - INFO - get_response - Created the required header file
+2025-03-08 15:19:29,816 - PreProcessing - INFO - get_response - Successfully Hit the endpoint
+2025-03-08 15:19:40,354 - PreProcessing - INFO - get_response - Successfully got response from endpoint
+2025-03-08 15:19:40,355 - PreProcessing - INFO - get_response - Response Successfull: 
+2025-03-08 15:20:12,438 - PreProcessing - INFO - get_response - Started json file retriver 
+2025-03-08 15:20:12,438 - PreProcessing - INFO - get_response - Created the required header file
+2025-03-08 15:20:12,438 - PreProcessing - INFO - get_response - Successfully Hit the endpoint
+2025-03-08 15:20:17,826 - PreProcessing - INFO - get_response - Successfully got response from endpoint
+2025-03-08 15:20:17,826 - PreProcessing - INFO - get_response - Response Successfull: 

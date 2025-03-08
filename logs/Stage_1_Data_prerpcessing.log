@@ -10,3 +10,15 @@
 2025-03-07 22:08:51,705 - Stage_1_Data_prerpcessing - INFO - fetch_data - Started >>>> Getting the response from https request
 2025-03-07 22:09:19,830 - Stage_1_Data_prerpcessing - INFO - fetch_data - Completed >>>> Getting the response from https request
 2025-03-07 22:09:19,830 - Stage_1_Data_prerpcessing - INFO - Main - Completed >>>> started preprocessing
+2025-03-08 15:19:29,815 - Stage_1_Data_prerpcessing - INFO - Main - Started >>>> started preprocessing
+2025-03-08 15:19:29,815 - Stage_1_Data_prerpcessing - INFO - fetch_data - Started >>>> Fetching the API key and endpoint for data Fetching
+2025-03-08 15:19:29,815 - Stage_1_Data_prerpcessing - INFO - fetch_data - Completed >>>> Fetching the API key and endpoint for data Fetching 
+2025-03-08 15:19:29,815 - Stage_1_Data_prerpcessing - INFO - fetch_data - Started >>>> Getting the response from https request
+2025-03-08 15:19:40,420 - Stage_1_Data_prerpcessing - INFO - fetch_data - Completed >>>> Getting the response from https request
+2025-03-08 15:19:40,421 - Stage_1_Data_prerpcessing - INFO - Main - Completed >>>> started preprocessing
+2025-03-08 15:20:12,438 - Stage_1_Data_prerpcessing - INFO - Main - Started >>>> started preprocessing
+2025-03-08 15:20:12,438 - Stage_1_Data_prerpcessing - INFO - fetch_data - Started >>>> Fetching the API key and endpoint for data Fetching
+2025-03-08 15:20:12,438 - Stage_1_Data_prerpcessing - INFO - fetch_data - Completed >>>> Fetching the API key and endpoint for data Fetching 
+2025-03-08 15:20:12,438 - Stage_1_Data_prerpcessing - INFO - fetch_data - Started >>>> Getting the response from https request
+2025-03-08 15:20:17,891 - Stage_1_Data_prerpcessing - INFO - fetch_data - Completed >>>> Getting the response from https request
+2025-03-08 15:20:17,920 - Stage_1_Data_prerpcessing - INFO - Main - Completed >>>> started preprocessing

@@ -1,71 +1,71 @@
-# from fastapi import FastAPI
-# from pydantic import BaseModel
+# import logging
+# import os
 
-# # Initialize FastAPI app
-# app = FastAPI()
+# # Ensure the "logs" directory exists
+# log_dir = 'logs'
+# os.makedirs(log_dir, exist_ok=True)
 
-# # Sample in-memory database
-# items = ["vivek"]
+# # logging configuration
+# logger = logging.getLogger('Stage_1_Data_prerpcessing')
+# logger.setLevel('DEBUG')
 
-# # Pydantic Model for request body validation
-# class Item(BaseModel):
-#     name: str
-#     price: float
-#     quantity: int
+# # Clear any existing handlers
+# logger.handlers = []
 
-# # Root endpoint
-# @app.get("/")
-# def home():
-#     return {"message": "Welcome to FastAPI!"}
+# console_handler = logging.StreamHandler()
+# console_handler.setLevel('DEBUG')
 
-# # GET all items
-# @app.get("/items")
-# def get_items():
-#     return {"items": items}
+# log_file_path = os.path.join(log_dir, 'Stage_1_Data_prerpcessing.log')
+# file_handler = logging.FileHandler(log_file_path)
+# file_handler.setLevel('DEBUG')
 
-# # POST a new item
-# @app.post("/items")
-# def create_item(item: Item):
-#     items.append(item.dict())  # Store item in list
-#     return {"message": "Item added successfully!", "item": item}
-# dsafads
+# formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(funcName)s - %(message)s')
+# console_handler.setFormatter(formatter)
+# file_handler.setFormatter(formatter)
 
+# logger.addHandler(console_handler)
+# logger.addHandler(file_handler)
 
-from Stages.Stage_1_Data_prerpcessing import main
-import logging
+from fastapi import FastAPI
 import os
+from dotenv import load_dotenv
+load_dotenv()
+from utils.PreProcessing import preprocessing
 
-# Ensure the "logs" directory exists
-log_dir = 'logs'
-os.makedirs(log_dir, exist_ok=True)
+app = FastAPI()
 
-# logging configuration
-logger = logging.getLogger('Stage_1_Data_prerpcessing')
-logger.setLevel('DEBUG')
+# Root endpoint
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to FastAPI!"}
 
-# Clear any existing handlers
-logger.handlers = []
+# Endpoint to return user info
+@app.get("/user/{user_id}")
+def get_user(user_id: int):
+    return {"user_id": user_id, "name": "John Doe"}
 
-console_handler = logging.StreamHandler()
-console_handler.setLevel('DEBUG')
-
-log_file_path = os.path.join(log_dir, 'Stage_1_Data_prerpcessing.log')
-file_handler = logging.FileHandler(log_file_path)
-file_handler.setLevel('DEBUG')
-
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(funcName)s - %(message)s')
-console_handler.setFormatter(formatter)
-file_handler.setFormatter(formatter)
-
-logger.addHandler(console_handler)
-logger.addHandler(file_handler)
-
-def Main():
-    logger.log(logging.INFO, "Started >>>> started preprocessing")
-    obj = main()
-    outfile = obj.fetch_data()
-    logger.log(logging.INFO, "Completed >>>> started preprocessing")
+# POST request to receive JSON data
+@app.post("/submit/")
+def submit_data(data: dict):
+    return {"message": "Data received", "data": data}
 
 
-if __name__ == "__main__":
-    Main()
+
+
+# custome end points
+# username = "afrobeezy"
+# @app.get("/getUserData/{username}")
+# def get_user_data(username: str):
+#     base_url_feed = os.getenv("BASE_URL_FEED_USER")
+#     print(base_url_feed+username)
+#     obj = preprocessing()
+#     output = obj.get_user_feed(base_url_feed = base_url_feed, username = username)
+#     output = output.posts[0]["topic"]
+#     return output
+
+
+
+
+
+
+
