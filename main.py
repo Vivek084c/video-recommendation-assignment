@@ -36,7 +36,19 @@
 
 # app=FastAPI()
 # app.include_router(users.APIRouter)
+import psycopg2
+import time
 
+#connecting to postgrace database
+while True:
+    try:
+        conn=psycopg2.connect(host="localhost",database="mydb",user='postgres',password='vivek@2003', port = 8888)
+        cursor=conn.cursor()
+        print("Database connection established")
+        break
+    except Exception as error:
+        print(f"the connection to database failed error: {error}")
+        time.sleep(2)
 
 from fastapi import FastAPI
 from routes import base # Import users router
