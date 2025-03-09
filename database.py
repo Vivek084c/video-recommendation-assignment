@@ -1,10 +1,10 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from .config import settings
+# from .config import settings
 
 # SQLALCHEMY_DATABASE_URL='postgresql://<username>:<password>@<ipaddress/hostname>/<database_name>'
-SQLALCHEMY_DATABASE_URL=f"postgresql://postgres:vivek@2003@localhost:5432/mydb"
+SQLALCHEMY_DATABASE_URL=f"postgresql://postgres:vivek@2003@localhost/vivek"
 
 engine=create_engine(SQLALCHEMY_DATABASE_URL)
 
